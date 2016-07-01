@@ -1,95 +1,53 @@
 
-export const phrases = [
-  "How are you?",
-  "I'm good.",
-  "What is your name?",
-  "Nice to meet you.",
-  "Where are you from?",
-  "What the fuck?",
-  "Holy shit!",
-  "Thank you"
+export const datas = [
+  [
+  "AAPL 96.35",
+  "ALL 69.79",
+  "AVAV 2780",
+  "YPRO 23.74",
+  "ADBE 95.84",
+  "PMC 24.95",
+  "ACHC 55.11",
+  "ACAD 35.13"
+],
+[
+"AAPL 95.65",
+"ALL 71.13",
+"AVAV 3000",
+"YPRO 24.49",
+"ADBE 94.94",
+"PMC 24.90",
+"ACHC 55.07",
+"ACAD 33.93"
+],
+[
+"AAPL 98.15",
+"ALL 70.80",
+"AVAV 3300",
+"YPRO 22.74",
+"ADBE 95.03",
+"PMC 22.35",
+"ACHC 55.01",
+"ACAD 34.13"
+],
+[
+"AAPL 106.05",
+"ALL 67.22",
+"AVAV 3600",
+"YPRO 22.51",
+"ADBE 95.84",
+"PMC 20.90",
+"ACHC 55.15",
+"ACAD 34.33"
+],
+[
+"AAPL 102.66",
+"ALL 69.79",
+"AVAV 3900",
+"YPRO 21.99",
+"ADBE 96.04",
+"PMC 20.20",
+"ACHC 55.11",
+"ACAD 34.63"
+]
 ];
-
-export const words = [
-  'Hello',
-  'Welcome',
-  'Goodbye',
-  'Yes',
-  'No',
-  'Maybe',
-  'Nice',
-  'Balls'
-];
-
-export const pronouns = [
-  'I',
-  'me',
-  'you',
-  'your',
-  'he',
-  'she',
-  'they',
-  'we',
-  'it',
-  'my'
-]
-
-export const verbs = [
-  'am',
-  'have',
-  'think',
-  'are',
-  'can',
-  'hope',
-  'is',
-  'feel',
-  'like',
-  'were',
-  'go',
-  'do',
-  'was',
-  'will',
-  'want',
-  'to',
-  'need',
-  'help',
-]
-
-
-export const negatives = [
-  'not',
-  'never',
-  "can't",
-  "don't",
-  "won't"
-]
-
-export const adjectives = [
-  'good',
-  'bad',
-  'very',
-  'kind of',
-  'big',
-  'small',
-  'easy',
-  'hard',
-  'right',
-  'wrong'
-]
-
-export const preps = [
-  'a',
-  'and',
-  'the',
-  'that',
-  'this',
-  'thing',
-  'in',
-  'to',
-  'for',
-  'as',
-  'at',
-  'on',
-  'with',
-  'about'
-]

@@ -2,19 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { verifyUser } from '../redux/actions'
 
-import JWT from '../helpers/jwt_helper'
-
 class Home extends Component{
   componentWillMount(){
-    if(!JWT.fetch()){
-      return false
-    } else {
-      return this.props.verifyUser().then(x => {
-        if (x.payload.data.user) {
-          this.context.router.replace('/dashboard');
-        }
-      })
-    }
+    return false;
   }
   render(){
     return(
@@ -30,7 +20,7 @@ Home.contextTypes = {
 };
 
 function mapStateToProps(state) {
-  return {user: state.user.cred}
+  return {user: state}
 }
 
 export default connect(mapStateToProps, {
