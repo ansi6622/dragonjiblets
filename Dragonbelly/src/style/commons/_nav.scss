@@ -1,0 +1,42 @@
+nav {
+  margin-bottom: 2%;
+
+  i{
+    color: white;
+  }
+
+}
+
+.active{
+  color: rgb(52, 254, 181);
+}
+
+.page-link{
+  color: DodgerBlue;
+}
+
+a{
+  &:focus{
+    color: rgb(52, 254, 181);
+    text-decoration: none;
+  }
+}
+
+.icon-link {
+  display: block;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  width: 280px;
+  height: 300px;
+  color: white;
+  background: CadetBlue;
+  border-radius: 5px 80px 5px 5px;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.74);
+    .icon-link-text {
+      color: rgba(0, 0, 0, 0.74);
+    }
+  }
+}

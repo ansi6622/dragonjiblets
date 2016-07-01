@@ -1,0 +1,40 @@
+.auth-form{
+  text-align: center;
+  margin-top: 1%;
+
+  input{
+    height: 60px;
+    font-size: 1.5em;
+    padding: 2% 2%;
+    margin: 2% 0;
+  }
+  button{
+    font-size: 1.5em;
+    margin-bottom: 3%;
+    background-color: rgb(49, 200, 100);
+  }
+}
+
+.speak-box{
+  clear: both;
+  margin: auto;
+  margin-bottom: 1%;
+
+
+  .speak-input{
+    height: 56px;
+    font-size: 1.5em;
+  }
+
+  button{
+    font-size: 1.5em;
+  }
+}
+
+fieldset{
+
+  label{
+    color: white;
+  }
+
+}
