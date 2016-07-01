@@ -8,6 +8,9 @@ def index():
 @route('/hello')
 def fun():
     return requests.get("https://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx/GetQuoteDataSet?StockSymbols=AAPL,ALL,AVAV,YPRO,ADBE,ACAD,ACHC,PMC&LicenseKey=0")
+@route('/neural/<id>')
+def process(id):
+    return id
 run(host='localhost', port=8080, debug=True)
 
 # other backup apis
