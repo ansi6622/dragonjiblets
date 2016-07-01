@@ -1,0 +1,3 @@
+http://dev.markitondemand.com/Api/v2/Quote
+http://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx?op=GetQuickQuote
+http://nsefinance.com/api/
