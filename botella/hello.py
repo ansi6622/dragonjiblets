@@ -1,18 +1,80 @@
 from bottle import route, run
+import numpy as np
 import requests
+from sklearn import tree
+from sklearn.datasets import load_iris
+iris = load_iris()
+test_idx = [0,50,100]
+train_target = np.delete(iris.target, test_idx)
+train_data = np.delete(iris.data, test_idx, axis=0)
+test_target = iris.target[test_idx]
+test_data = iris.data[test_idx]
+clf = tree.DecisionTreeClassifier()
+treed = clf.fit(train_data, train_target)
+oh = treed.predict(test_data)
 
+from sklearn.externals.six import StringIO
+import pydot
+dot_data = StringIO()
+tree.export_graphviz(clf, out_file=dot_data)
+graph = pydot.graph_from_dot_data(dot_data.getvalue())
+graph.write_pdf("iris.pdf")
+#
+# from IPython.display import Image
+# dot_data = StringIO()
+# tree.export_graphviz(clf, out_file=dot_data,
+#                          feature_names=iris.feature_names,
+#                          class_names=iris.target_names,
+#                          filled=True, rounded=True,
+#                          special_characters=True)
+# graph = pydot.graph_from_dot_data(dot_data.getvalue())
+# Image(graph.create_png())
 @route('/')
 def index():
-    return "you started a page"
-
-@route('/hello')
+    # print iris.feature_names, iris.target_names, iris.data[0]
+    # print "space"
+    print test_target, "trgt"
+    print oh, "oh"
+    # print test_data, "datas"
+    # print clf2.predict(test_data), "peredictionoas"
+    return "mew"
+#
+@route('/stocks')
 def fun():
-    return requests.get("https://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx/GetQuoteDataSet?StockSymbols=AAPL,ALL,AVAV,YPRO,ADBE,ACAD,ACHC,PMC&LicenseKey=0")
-@route('/neural/<id>')
-def process(id):
-    return id
-run(host='localhost', port=8080, debug=True)
+    def fut(other):
+        print other
+        return requests.get("https://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx/GetQuoteDataSet?StockSymbols=    ADBE,PMC&LicenseKey=0")
+    return fut(requests.get("https://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx/GetQuoteDataSet?StockSymbols=AAPL,ALL,AVAV,YPRO,ADBE,ACAD,ACHC,PMC&LicenseKey=0"))
+#
+# clfMain = tree.DecisionTreeClassifier()
+# bumpy = 0
+# smooth = 1
+# apple = 0
+# orange = 1
+# features = [[140, smooth], [130, smooth], [150,bumpy], [170, bumpy]]
+# labels = [apple,apple,orange,orange]
+# clf1 = clfMain.fit(features, labels)
+# a1 = clf1.predict([[162, bumpy]])
+# @route('/neural')
+# def wowfactor():
+#     print bumpy,"bumpy", smooth,"smooth", apple,"apple", orange, "orange", features,"features" ,labels, "labels", clf1, "clf", a1
+#     print clf1.predict([[120, smooth]])
+#     # data format unsupported in browser? type numpy64 bit or watevea
+#     return "wowoooowie"
 
+
+    #
+    # @route('/fibStressTest/<id>')
+    # def process(id):
+    #     def fib(counter):
+    #         print counter
+    #         # if n == id: return
+    #         if counter == 0: return 0
+    #         elif counter == 1: return 1
+    #         else: return process(counter-1)+process(counter-2)
+    #     return fib(float(id))
+    #
+run(host='localhost', port=8080, debug=True)
 # other backup apis
 # http://marketdata.websol.barchart.com/getHistory.json?key=39895bae9a46dbe83e26c04b3b387649&symbol=IBM&type=daily&startDate=20150629000000
 # http://marketdata.websol.barchart.com/getQuote.json?key=39895bae9a46dbe83e26c04b3b387649&symbols=ZC*1,IBM,GOOGL,
