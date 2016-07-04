@@ -13,13 +13,13 @@ clf = tree.DecisionTreeClassifier()
 treed = clf.fit(train_data, train_target)
 oh = treed.predict(test_data)
 
-from sklearn.externals.six import StringIO
-import pydot
-dot_data = StringIO()
-tree.export_graphviz(clf, out_file=dot_data)
-graph = pydot.graph_from_dot_data(dot_data.getvalue())
-graph.write_pdf("iris.pdf")
-#
+# from sklearn.externals.six import StringIO
+# import pydot
+# dot_data = StringIO()
+# tree.export_graphviz(clf, out_file=dot_data)
+# graph = pydot.graph_from_dot_data(dot_data.getvalue())
+# graph.write_pdf("iris.pdf")
+# #
 # from IPython.display import Image
 # dot_data = StringIO()
 # tree.export_graphviz(clf, out_file=dot_data,
@@ -43,7 +43,7 @@ def index():
 def fun():
     def fut(other):
         print other
-        return requests.get("https://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx/GetQuoteDataSet?StockSymbols=    ADBE,PMC&LicenseKey=0")
+        return requests.get("https://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx/GetQuoteDataSet?StockSymbols=    AAPL&LicenseKey=0")
     return fut(requests.get("https://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx/GetQuoteDataSet?StockSymbols=AAPL,ALL,AVAV,YPRO,ADBE,ACAD,ACHC,PMC&LicenseKey=0"))
 #
 # clfMain = tree.DecisionTreeClassifier()
