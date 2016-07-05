@@ -50,3 +50,16 @@ if __name__=='__main__':
 # [ 60.32483923] alny -.0722 on second predict
 # [ 57.11150073] anip +.0477 on second predict
 # [ 50.75742063] kite -.0193 on second predict
+
+# 3rd predict
+# [ 95.88119931] AAPL
+# [ 710.57963995] GOOGL
+# [ 24.99594068] PMC
+# [ 51.15600003] MSFT
+# [ 114.36570161] FB
+# [ 725.4281145] AMZN
+# [ 51.27661925] RARE vol
+# [ 92.12637795] TREE vol
+# [ 60.25269929] alny vol
+# [ 57.14920077] anip vol
+# [ 50.73810055] kite vol
