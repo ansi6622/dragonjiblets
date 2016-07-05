@@ -29,3 +29,4 @@ if __name__=='__main__':
 
 
 # 'AAPL', 'GOOGL', 'PMC', 'MSFT', 'FB', 'AMZN', 'RARE', 'TREE', 'ALNY', 'ANIP', 'KITE'
+        # url = "http://real-chart.finance.yahoo.com/table.csv?s={0}&a=00&b=01&c=2011&d={1}&e={2}&f={3}&g=d&ignore=.csv".format(ticker, today.month-1, today.day-1, today.year)

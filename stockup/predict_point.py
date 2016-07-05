@@ -16,9 +16,12 @@ def process_point(symbol):
     date_ordinal = pd.to_datetime(soup.find('LastTradeDateTime').text).toordinal()
     return np.array([open_amount, high_amount, low_amount, volume, date_ordinal]).reshape(1, -1)
 
+def proc_point(dpoint):
+    return np.array([dpoint[1],dpoint[2],dpoint[3],dpoint[5],dpoint[7]]).reshape(1, -1)
 
-def predict_point(models, symbol):
-    X = process_point(symbol)
+def predict_point(models, symbol, dpoint):
+    # X = process_point(symbol)
+    X = proc_point(dpoint)
     return models[symbol].predict(X)
 
 
@@ -26,17 +29,20 @@ if __name__=='__main__':
     with open('models.pkl') as f:
         models = pickle.load(f)
 
-    print predict_point(models, 'AAPL'), 'AAPL'
-    print predict_point(models, 'GOOGL'), 'GOOGL'
-    print predict_point(models, 'PMC'), 'PMC'
-    print predict_point(models, 'MSFT'), 'MSFT'
-    print predict_point(models, 'FB'), 'FB'
-    print predict_point(models, 'AMZN'), 'AMZN'
-    print predict_point(models, 'RARE'), 'RARE vol'
-    print predict_point(models, 'TREE'), 'TREE vol'
-    print predict_point(models, 'ALNY'), 'alny vol'
-    print predict_point(models, 'ANIP'), 'anip vol'
-    print predict_point(models, 'KITE'), 'kite vol'
+    print "Predictions for 06-07-2016 closing price, based on data from 01-01-2011 to 06-06-2016"
+    print predict_point(models, 'AAPL', [2016-06-07,99.25,99.870003,98.959999,99.029999,22366400,'AAPL',736122]), 'AAPL 99.029999'
+    print predict_point(models, 'GOOGL', [2016-06-07,733.27002,736.710022,730.799988,731.090027,1214700,'GOOGL',736122]), 'GOOGL 731.090027'
+    print predict_point(models, 'PMC', [2016-06-07,26.200001,26.639999,25.870001,26.35,218800,'PMC',736122]), 'PMC 26.35'
+    print predict_point(models, 'MSFT', [2016-06-07,52.240002,52.73,52.099998,52.099998,20794000,'MSFT',736122]), 'MSFT 52.099998'
+    print predict_point(models, 'FB', [2016-06-07,119.239998,119.300003,117.669998,117.760002,17053700,'FB',736122]), 'FB 117.760002'
+    print predict_point(models, 'AMZN', [2016-06-07,729.890015,730.0,720.549988,723.73999,2719700,'AMZN',736122]), 'AMZN 723.73999'
+    print predict_point(models, 'RARE', [2016-06-07,71.669998,71.855003,68.620003,70.169998,678400,'RARE',736122]), 'RARE vol 70.169998'
+    print predict_point(models, 'TREE', [2016-06-07,88.269997,90.269997,87.800003,89.510002,471500,'TREE',736122]), 'TREE vol 89.510002'
+    print predict_point(models, 'ALNY', [2016-06-07,71.400002,72.639999,69.68,71.050003,845100,'ALNY',736122]), 'ALNY vol 71.050003'
+    print predict_point(models, 'ANIP', [2016-06-07,55.25,56.400002,54.5,55.52,138800,'ANIP',736122]), 'ANIP vol 55.52'
+    print predict_point(models, 'KITE', [2016-06-07,57.41,57.91,55.450001,56.060001,881200,'KITE',736122]), 'KITE vol 56.060001'
+
+
 
 # july 1,
 # 'AAPL' [ 95.89815912],
