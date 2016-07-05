@@ -26,9 +26,17 @@ if __name__=='__main__':
     with open('models.pkl') as f:
         models = pickle.load(f)
 
-    print predict_point(models, 'ALNY'), 'alny'
-    print predict_point(models, 'ANIP'), 'anip'
-    print predict_point(models, 'KITE'), 'kite'
+    print predict_point(models, 'AAPL'), 'AAPL'
+    print predict_point(models, 'GOOGL'), 'GOOGL'
+    print predict_point(models, 'PMC'), 'PMC'
+    print predict_point(models, 'MSFT'), 'MSFT'
+    print predict_point(models, 'FB'), 'FB'
+    print predict_point(models, 'AMZN'), 'AMZN'
+    print predict_point(models, 'RARE'), 'RARE vol'
+    print predict_point(models, 'TREE'), 'TREE vol'
+    print predict_point(models, 'ALNY'), 'alny vol'
+    print predict_point(models, 'ANIP'), 'anip vol'
+    print predict_point(models, 'KITE'), 'kite vol'
 
 # july 1,
 # 'AAPL' [ 95.89815912],
@@ -39,6 +47,6 @@ if __name__=='__main__':
 # [ 725.35809375] amazon
 # [ 51.30313932] rare pharm
 # [ 92.14649767] tree,
-# [ 60.32483923] alny
-# [ 57.11150073] anip
-# [ 50.75742063] kite
+# [ 60.32483923] alny -.0722 on second predict
+# [ 57.11150073] anip +.0477 on second predict
+# [ 50.75742063] kite -.0193 on second predict

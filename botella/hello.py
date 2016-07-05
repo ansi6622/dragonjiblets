@@ -41,10 +41,10 @@ def index():
 #
 @route('/stocks')
 def fun():
-    def fut(other):
-        print other
-        return requests.get("https://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx/GetQuoteDataSet?StockSymbols=    AAPL&LicenseKey=0")
-    return fut(requests.get("https://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx/GetQuoteDataSet?StockSymbols=AAPL,ALL,AVAV,YPRO,ADBE,ACAD,ACHC,PMC&LicenseKey=0"))
+    # def fut(other):
+    #     print other
+    #     return requests.get("https://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx/GetQuoteDataSet?StockSymbols=    AAPL&LicenseKey=0")
+    # return fut(requests.get("https://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx/GetQuoteDataSet?StockSymbols=AAPL,ALL,AVAV,YPRO,ADBE,ACAD,ACHC,PMC&LicenseKey=0"))
 #
 # clfMain = tree.DecisionTreeClassifier()
 # bumpy = 0
@@ -61,6 +61,8 @@ def fun():
 #     print clf1.predict([[120, smooth]])
 #     # data format unsupported in browser? type numpy64 bit or watevea
 #     return "wowoooowie"
+    return requests.get("https://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx/GetQuoteDataSet?StockSymbols=AAPL,ALL,AVAV,YPRO,ADBE,ACAD,ACHC,PMC&LicenseKey=0")
+run(host='localhost', port=3000, debug=True)
 
 
     #
