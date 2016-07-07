@@ -1,0 +1,313 @@
+<h2>Kite Pharma Inc ({{stock}})</h2>
+<div class="container">
+
+    <div class="jumbotron">
+
+        <svg id="visualisation" width="1000" height="500"></svg>
+        <script>
+            function InitChart() {
+                var kiteP = [{
+                    "close": "48.12906007",
+                    "date": "1"
+                },
+                {
+                    "close": "48.16081976",
+                    "date": "2"
+                },
+                {
+                    "close": "47.94698027",
+                    "date": "3"
+                },
+                {
+                    "close": "48.04211911",
+                    "date": "4"
+                },
+                {
+                    "close": "47.60114002",
+                    "date": "5"
+                },
+                {
+                    "close": "49.54667916",
+                    "date": "6"
+                },
+                {
+                    "close": "51.07243966",
+                    "date": "7"
+                },
+                {
+                    "close": "53.24170004",
+                    "date": "8"
+                },
+                {
+                    "close": "52.27906026",
+                    "date": "9"
+                },
+                {
+                    "close": "55.9791604",
+                    "date": "10"
+                },
+                {
+                    "close": "56.79037993",
+                    "date": "11"
+                },
+                {
+                    "close": "55.74105999",
+                    "date": "12"
+                },
+                {
+                    "close": "54.5631997",
+                    "date": "13"
+                },
+                {
+                    "close": "51.17365959",
+                    "date": "14"
+                },
+                {
+                    "close": "51.66293965",
+                    "date": "15"
+                },
+                {
+                    "close": "50.48341923",
+                    "date": "16"
+                },
+                {
+                    "close": "51.42277954",
+                    "date": "17"
+                },
+                {
+                    "close": "51.54695967",
+                    "date": "18"
+                },
+                {
+                    "close": "50.91438012",
+                    "date": "19"
+                },
+                {
+                    "close": "50.86089941",
+                    "date": "20"
+                },
+                {
+                    "close": "50.40249991",
+                    "date": "21"
+                },
+                {
+                    "close": "50.74114003",
+                    "date": "22"
+                },
+                {
+                    "close": "51.68228065",
+                    "date": "23"
+                },
+                {
+                    "close": "50.84465953",
+                    "date": "24"
+                },
+                {
+                    "close": "49.67329976",
+                    "date": "25"
+                },
+                {
+                    "close": "50.55449974",
+                    "date": "26"
+                },
+                {
+                    "close": "51.38209973",
+                    "date": "27"
+                },
+                {
+                    "close": "49.99481969",
+                    "date": "28"
+                },
+                {
+                    "close": "50.75742063",
+                    "date": "29"
+                }
+              ];
+
+
+                var kiteA = [
+                  {
+                    "close": "48.18",
+                    "date": "1"
+                },
+                  {
+                    "close": "48.200001",
+                    "date": "2"
+                },
+                  {
+                    "close": "48.009998",
+                    "date": "3"
+                },
+                  {
+                    "close": "47.810001",
+                    "date": "4"
+                },
+                  {
+                    "close": "47.790001",
+                    "date": "5"
+                },
+                  {
+                    "close": "51.25",
+                    "date": "6"
+                },
+                  {
+                    "close": "50.869999",
+                    "date": "7"
+                },
+                  {
+                    "close": "54.869999",
+                    "date": "8"
+                },
+                  {
+                    "close": "52.080002",
+                    "date": "9"
+                },
+                  {
+                    "close": "57.419998",
+                    "date": "10"
+                },
+                  {
+                    "close": "56.060001",
+                    "date": "11"
+                },
+                  {
+                    "close": "56.18",
+                    "date": "12"
+                },
+                  {
+                    "close": "53.419998",
+                    "date": "13"
+                },
+                  {
+                    "close": "51.299999",
+                    "date": "14"
+                },
+                  {
+                    "close": "50.939999",
+                    "date": "15"
+                },
+                  {
+                    "close": "50.540001",
+                    "date": "16"
+                },
+                  {
+                    "close": "52.580002",
+                    "date": "17"
+                },
+                  {
+                    "close": "52.490002",
+                    "date": "18"
+                },
+                  {
+                    "close": "49.73",
+                    "date": "19"
+                },
+                  {
+                    "close": "51.09",
+                    "date": "20"
+                },
+                  {
+                    "close": "50.91",
+                    "date": "21"
+                },
+                  {
+                    "close": "51.139999",
+                    "date": "22"
+                },
+                  {
+                    "close": "53.110001",
+                    "date": "23"
+                },
+                  {
+                    "close": "50.740002",
+                    "date": "24"
+                },
+                  {
+                    "close": "49.389999",
+                    "date": "25"
+                },
+                  {
+                    "close": "50.880001",
+                    "date": "26"
+                },
+                  {
+                    "close": "50.990002",
+                    "date": "27"
+                },
+                  {
+                    "close": "50.0",
+                    "date": "28"
+                },
+                  {
+                    "close": "50.950001",
+                    "date": "29"
+                }
+              ];
+
+
+
+                var vis = d3.select("#visualisation"),
+                    WIDTH = 1000,
+                    HEIGHT = 500,
+                    MARGINS = {
+                        top: 20,
+                        right: 20,
+                        bottom: 20,
+                        left: 50
+                    },
+
+                    xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([0, 30]),
+
+                    yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([47, 57]),
+
+                    xAxis = d3.svg.axis()
+                    .scale(xScale),
+
+                    yAxis = d3.svg.axis()
+                    .scale(yScale)
+                    .orient("left");
+
+
+
+
+
+                vis.append("svg:g")
+                    .attr("class", "x axis")
+                    .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
+                    .call(xAxis);
+
+                vis.append("svg:g")
+                    .attr("class", "y axis")
+                    .attr("transform", "translate(" + (MARGINS.left) + ",0)")
+                    .call(yAxis);
+
+                var lineGen = d3.svg.line()
+                    .x(function(d) {
+                        return xScale(d.date);
+                    })
+                    .y(function(d) {
+                        return yScale(d.close);
+                    })
+                    .interpolate("basis");
+
+                vis.append('svg:path')
+                    .attr('d', lineGen(kiteP))
+                    .attr('stroke', 'rgb(233, 107, 207)')
+                    .attr('stroke-width', 2)
+                    .attr('fill', 'none');
+
+                vis.append('svg:path')
+                    .attr('d', lineGen(kiteA))
+                    .attr('stroke', 'rgba(111, 250, 82, 1)')
+                    .attr('stroke-width', 2)
+                    .attr('fill', 'none');
+
+
+
+
+            }
+            InitChart();
+        </script>
+    </div>
+
+</div>

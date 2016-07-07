@@ -65,5 +65,26 @@ router.get('/fb', function(req, res, next) {
 router.get('/msft', function(req, res, next) {
   res.render('companies/msft', { title: 'Microsoft' });
 });
+router.get('/amzn', function(req, res, next) {
+  res.render('companies/amzn', { title: 'Amazon' });
+});
+router.get('/pmc', function(req, res, next) {
+  res.render('companies/pmc', { title: 'Pharmerica' });
+});
+router.get('/rare', function(req, res, next) {
+  res.render('companies/rare', { title: 'Ultragenyx Pharmaceuticals' });
+});
+router.get('/tree', function(req, res, next) {
+  res.render('companies/tree', { title: 'Lending Tree' });
+});
+router.get('/alny', function(req, res, next) {
+  res.render('companies/alny', { title: 'Alnylam Pharmaceuticals' });
+});
+router.get('/anip', function(req, res, next) {
+  res.render('companies/anip', { title: 'Alnylam Pharmaceuticals' });
+});
+router.get('/kite', function(req, res, next) {
+  res.render('companies/kite', { title: 'Kite Pharma Inc' });
+});
 
 module.exports = router;

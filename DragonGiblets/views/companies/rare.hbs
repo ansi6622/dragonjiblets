@@ -1,0 +1,313 @@
+<h2>Ultragenyx Pharmaceutical Inc ({{stock}})</h2>
+<div class="container">
+
+    <div class="jumbotron">
+
+        <svg id="visualisation" width="1000" height="500"></svg>
+        <script>
+            function InitChart() {
+                var rareP = [{
+                    "close": "66.60065999",
+                    "date": "1"
+                },
+                {
+                    "close": "66.92168032",
+                    "date": "2"
+                },
+                {
+                    "close": "68.65006093",
+                    "date": "3"
+                },
+                {
+                    "close": "68.24691944",
+                    "date": "4"
+                },
+                {
+                    "close": "68.30225953",
+                    "date": "5"
+                },
+                {
+                    "close": "72.08563979",
+                    "date": "6"
+                },
+                {
+                    "close": "72.07353996",
+                    "date": "7"
+                },
+                {
+                    "close": "73.65121991",
+                    "date": "8"
+                },
+                {
+                    "close": "70.23930019",
+                    "date": "9"
+                },
+                {
+                    "close": "69.87111924",
+                    "date": "10"
+                },
+                {
+                    "close": "70.76611965",
+                    "date": "11"
+                },
+                {
+                    "close": "70.54953904",
+                    "date": "12"
+                },
+                {
+                    "close": "70.48085866",
+                    "date": "13"
+                },
+                {
+                    "close": "62.34890107",
+                    "date": "14"
+                },
+                {
+                    "close": "59.83379992",
+                    "date": "15"
+                },
+                {
+                    "close": "60.65587965",
+                    "date": "16"
+                },
+                {
+                    "close": "61.79672117",
+                    "date": "17"
+                },
+                {
+                    "close": "60.01475911",
+                    "date": "18"
+                },
+                {
+                    "close": "57.25668988",
+                    "date": "19"
+                },
+                {
+                    "close": "55.68111006",
+                    "date": "20"
+                },
+                {
+                    "close": "54.30704",
+                    "date": "21"
+                },
+                {
+                    "close": "53.44367992",
+                    "date": "22"
+                },
+                {
+                    "close": "52.35459961",
+                    "date": "23"
+                },
+                {
+                    "close": "49.23856097",
+                    "date": "24"
+                },
+                {
+                    "close": "47.53125972",
+                    "date": "25"
+                },
+                {
+                    "close": "49.80422",
+                    "date": "26"
+                },
+                {
+                    "close": "50.70130038",
+                    "date": "27"
+                },
+                {
+                    "close": "49.68920058",
+                    "date": "28"
+                },
+                {
+                    "close": "50.7158597",
+                    "date": "29"
+                }
+              ];
+
+
+                var rareA = [
+                  {
+                    "close": "65.190002",
+                    "date": "1"
+                },
+                  {
+                    "close": "68.279999",
+                    "date": "2"
+                },
+                  {
+                    "close": "68.589996",
+                    "date": "3"
+                },
+                  {
+                    "close": "69.529999",
+                    "date": "4"
+                },
+                  {
+                    "close": "68.57",
+                    "date": "5"
+                },
+                  {
+                    "close": "73.099998",
+                    "date": "6"
+                },
+                  {
+                    "close": "70.57",
+                    "date": "7"
+                },
+                  {
+                    "close": "73.690002",
+                    "date": "8"
+                },
+                  {
+                    "close": "69.529999",
+                    "date": "9"
+                },
+                  {
+                    "close": "72.949997",
+                    "date": "10"
+                },
+                  {
+                    "close": "70.169998",
+                    "date": "11"
+                },
+                  {
+                    "close": "71.279999",
+                    "date": "12"
+                },
+                  {
+                    "close": "65.849998",
+                    "date": "13"
+                },
+                  {
+                    "close": "61.580002",
+                    "date": "14"
+                },
+                  {
+                    "close": "60.009998",
+                    "date": "15"
+                },
+                  {
+                    "close": "61.0",
+                    "date": "16"
+                },
+                  {
+                    "close": "62.639999",
+                    "date": "17"
+                },
+                  {
+                    "close": "59.759998",
+                    "date": "18"
+                },
+                  {
+                    "close": "54.990002",
+                    "date": "19"
+                },
+                  {
+                    "close": "54.5",
+                    "date": "20"
+                },
+                  {
+                    "close": "52.029999",
+                    "date": "21"
+                },
+                  {
+                    "close": "52.400002",
+                    "date": "22"
+                },
+                  {
+                    "close": "51.950001",
+                    "date": "23"
+                },
+                  {
+                    "close": "49.169998",
+                    "date": "24"
+                },
+                  {
+                    "close": "47.259998",
+                    "date": "25"
+                },
+                  {
+                    "close": "50.73",
+                    "date": "26"
+                },
+                  {
+                    "close": "49.75",
+                    "date": "27"
+                },
+                  {
+                    "close": "48.91",
+                    "date": "28"
+                },
+                  {
+                    "close": "51.709999",
+                    "date": "29"
+                }
+              ];
+
+
+
+                var vis = d3.select("#visualisation"),
+                    WIDTH = 1000,
+                    HEIGHT = 500,
+                    MARGINS = {
+                        top: 20,
+                        right: 20,
+                        bottom: 20,
+                        left: 50
+                    },
+
+                    xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([0, 30]),
+
+                    yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([48, 74]),
+
+                    xAxis = d3.svg.axis()
+                    .scale(xScale),
+
+                    yAxis = d3.svg.axis()
+                    .scale(yScale)
+                    .orient("left");
+
+
+
+
+
+                vis.append("svg:g")
+                    .attr("class", "x axis")
+                    .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
+                    .call(xAxis);
+
+                vis.append("svg:g")
+                    .attr("class", "y axis")
+                    .attr("transform", "translate(" + (MARGINS.left) + ",0)")
+                    .call(yAxis);
+
+                var lineGen = d3.svg.line()
+                    .x(function(d) {
+                        return xScale(d.date);
+                    })
+                    .y(function(d) {
+                        return yScale(d.close);
+                    })
+                    .interpolate("basis");
+
+                vis.append('svg:path')
+                    .attr('d', lineGen(rareP))
+                    .attr('stroke', 'rgb(133, 207, 107)')
+                    .attr('stroke-width', 2)
+                    .attr('fill', 'none');
+
+                vis.append('svg:path')
+                    .attr('d', lineGen(rareA))
+                    .attr('stroke', 'rgba(171, 56, 12, 0.82)')
+                    .attr('stroke-width', 2)
+                    .attr('fill', 'none');
+
+
+
+
+            }
+            InitChart();
+        </script>
+    </div>
+
+</div>

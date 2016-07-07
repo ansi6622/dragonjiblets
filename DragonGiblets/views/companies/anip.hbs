@@ -1,0 +1,313 @@
+<h2>ANI Pharmaceuticals Inc ({{stock}})</h2>
+<div class="container">
+
+    <div class="jumbotron">
+
+        <svg id="visualisation" width="1000" height="500"></svg>
+        <script>
+            function InitChart() {
+                var anipP = [{
+                    "close": "49.89518014",
+                    "date": "1"
+                },
+                {
+                    "close": "49.35016072",
+                    "date": "2"
+                },
+                {
+                    "close": "51.61325967",
+                    "date": "3"
+                },
+                {
+                    "close": "52.12901916",
+                    "date": "4"
+                },
+                {
+                    "close": "52.17987981",
+                    "date": "5"
+                },
+                {
+                    "close": "53.55844019",
+                    "date": "6"
+                },
+                {
+                    "close": "54.75040006",
+                    "date": "7"
+                },
+                {
+                    "close": "55.30432048",
+                    "date": "8"
+                },
+                {
+                    "close": "55.14756004",
+                    "date": "9"
+                },
+                {
+                    "close": "55.3369204",
+                    "date": "10"
+                },
+                {
+                    "close": "55.49084019",
+                    "date": "11"
+                },
+                {
+                    "close": "55.15761995",
+                    "date": "12"
+                },
+                {
+                    "close": "55.12849927",
+                    "date": "13"
+                },
+                {
+                    "close": "52.52719991",
+                    "date": "14"
+                },
+                {
+                    "close": "53.62887987",
+                    "date": "15"
+                },
+                {
+                    "close": "54.05102048",
+                    "date": "16"
+                },
+                {
+                    "close": "55.55627988",
+                    "date": "17"
+                },
+                {
+                    "close": "55.39025996",
+                    "date": "18"
+                },
+                {
+                    "close": "53.80902001",
+                    "date": "19"
+                },
+                {
+                    "close": "53.53362084",
+                    "date": "20"
+                },
+                {
+                    "close": "51.73103987",
+                    "date": "21"
+                },
+                {
+                    "close": "52.80314002",
+                    "date": "22"
+                },
+                {
+                    "close": "55.65742065",
+                    "date": "23"
+                },
+                {
+                    "close": "53.23814013",
+                    "date": "24"
+                },
+                {
+                    "close": "53.67432062",
+                    "date": "25"
+                },
+                {
+                    "close": "55.25353997",
+                    "date": "26"
+                },
+                {
+                    "close": "56.67916024",
+                    "date": "27"
+                },
+                {
+                    "close": "55.73507997",
+                    "date": "28"
+                },
+                {
+                    "close": "57.11150073",
+                    "date": "29"
+                }
+              ];
+
+
+                var anipA = [
+                  {
+                    "close": "49.200001",
+                    "date": "1"
+                },
+                  {
+                    "close": "50.09",
+                    "date": "2"
+                },
+                  {
+                    "close": "52.049999",
+                    "date": "3"
+                },
+                  {
+                    "close": "51.650002",
+                    "date": "4"
+                },
+                  {
+                    "close": "52.279999",
+                    "date": "5"
+                },
+                  {
+                    "close": "54.150002",
+                    "date": "6"
+                },
+                  {
+                    "close": "54.75",
+                    "date": "7"
+                },
+                  {
+                    "close": "56.150002",
+                    "date": "8"
+                },
+                  {
+                    "close": "54.57",
+                    "date": "9"
+                },
+                  {
+                    "close": "55.759998",
+                    "date": "10"
+                },
+                  {
+                    "close": "55.52",
+                    "date": "11"
+                },
+                  {
+                    "close": "55.799999",
+                    "date": "12"
+                },
+                  {
+                    "close": "53.689999",
+                    "date": "13"
+                },
+                  {
+                    "close": "52.049999",
+                    "date": "14"
+                },
+                  {
+                    "close": "53.189999",
+                    "date": "15"
+                },
+                  {
+                    "close": "54.810001",
+                    "date": "16"
+                },
+                  {
+                    "close": "55.490002",
+                    "date": "17"
+                },
+                  {
+                    "close": "56.009998",
+                    "date": "18"
+                },
+                  {
+                    "close": "52.84",
+                    "date": "19"
+                },
+                  {
+                    "close": "53.09",
+                    "date": "20"
+                },
+                  {
+                    "close": "51.360001",
+                    "date": "21"
+                },
+                  {
+                    "close": "52.790001",
+                    "date": "22"
+                },
+                  {
+                    "close": "56.27",
+                    "date": "23"
+                },
+                  {
+                    "close": "54.34",
+                    "date": "24"
+                },
+                  {
+                    "close": "52.549999",
+                    "date": "25"
+                },
+                  {
+                    "close": "57.0",
+                    "date": "26"
+                },
+                  {
+                    "close": "56.18",
+                    "date": "27"
+                },
+                  {
+                    "close": "55.82",
+                    "date": "28"
+                },
+                  {
+                    "close": "57.310001",
+                    "date": "29"
+                }
+              ];
+
+
+
+                var vis = d3.select("#visualisation"),
+                    WIDTH = 1000,
+                    HEIGHT = 500,
+                    MARGINS = {
+                        top: 20,
+                        right: 20,
+                        bottom: 20,
+                        left: 50
+                    },
+
+                    xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([0, 30]),
+
+                    yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([49, 57]),
+
+                    xAxis = d3.svg.axis()
+                    .scale(xScale),
+
+                    yAxis = d3.svg.axis()
+                    .scale(yScale)
+                    .orient("left");
+
+
+
+
+
+                vis.append("svg:g")
+                    .attr("class", "x axis")
+                    .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
+                    .call(xAxis);
+
+                vis.append("svg:g")
+                    .attr("class", "y axis")
+                    .attr("transform", "translate(" + (MARGINS.left) + ",0)")
+                    .call(yAxis);
+
+                var lineGen = d3.svg.line()
+                    .x(function(d) {
+                        return xScale(d.date);
+                    })
+                    .y(function(d) {
+                        return yScale(d.close);
+                    })
+                    .interpolate("basis");
+
+                vis.append('svg:path')
+                    .attr('d', lineGen(anipP))
+                    .attr('stroke', 'rgb(33, 07, 07)')
+                    .attr('stroke-width', 2)
+                    .attr('fill', 'none');
+
+                vis.append('svg:path')
+                    .attr('d', lineGen(anipA))
+                    .attr('stroke', 'rgba(111, 106, 102, 0.82)')
+                    .attr('stroke-width', 2)
+                    .attr('fill', 'none');
+
+
+
+
+            }
+            InitChart();
+        </script>
+    </div>
+
+</div>
