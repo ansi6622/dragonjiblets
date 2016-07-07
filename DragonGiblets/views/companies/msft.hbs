@@ -243,7 +243,21 @@
                     "date": "29"
                 }
               ];
-
+              let meow = [];
+              function getAvgPercentDiff(actual, predicted) {
+                actual.map(function(point, ind){
+                  if(point.close > predicted[ind].close){
+                    meow.push(parseFloat(point.close) - parseFloat(predicted[ind].close))
+                  }
+                  else if(point.close < predicted[ind].close){
+                    meow.push(parseFloat(predicted[ind].close) - parseFloat(point.close))
+                  }
+                })
+                console.log(meow);
+                var sum = meow.reduce(function(a, b) { return a + b; }, 0);
+                console.log(sum / 29);
+              }
+              getAvgPercentDiff(msftA, msftP);
 
 
 
@@ -313,3 +327,6 @@
     </div>
 
 </div>
+<p>
+  $0.24 average deviation
+</p>

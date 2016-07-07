@@ -81,10 +81,13 @@ router.get('/alny', function(req, res, next) {
   res.render('companies/alny', { title: 'Alnylam Pharmaceuticals' });
 });
 router.get('/anip', function(req, res, next) {
-  res.render('companies/anip', { title: 'Alnylam Pharmaceuticals' });
+  res.render('companies/anip', { title: 'ANI Pharm.' });
 });
 router.get('/kite', function(req, res, next) {
   res.render('companies/kite', { title: 'Kite Pharma Inc' });
+});
+router.get('/all', function(req, res, next) {
+  res.render('all', { title: 'Kite Pharma Inc' });
 });
 
 module.exports = router;

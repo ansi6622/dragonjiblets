@@ -5,7 +5,12 @@ body {
 }
 
 .paint {
-  background-color: rgba(246, 238, 218, 0.98);
+  /*background-color: rgba(0,0,0,.4);*/
+  background-color: black;
+  border-radius: 15px;
+  padding-bottom: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 .easy{
@@ -16,4 +21,18 @@ body {
 .font {
   color: rgb(34, 37, 36);
   /*border: 1px solid red;*/
+}
+.well {
+  background-color: rgba(246, 238, 218, 0.28);
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-bottom: 2em;
+  border-radius: 15px;
+}
+#well{
+  background-color: rgba(246, 248, 228, 0.98);
+}
+.container {
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.38)
 }

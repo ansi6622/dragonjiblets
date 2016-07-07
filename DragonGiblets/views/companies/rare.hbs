@@ -243,6 +243,21 @@
                     "date": "29"
                 }
               ];
+              let meow = [];
+              function getAvgPercentDiff(actual, predicted) {
+                actual.map(function(point, ind){
+                  if(point.close > predicted[ind].close){
+                    meow.push(parseFloat(point.close) - parseFloat(predicted[ind].close))
+                  }
+                  else if(point.close < predicted[ind].close){
+                    meow.push(parseFloat(predicted[ind].close) - parseFloat(point.close))
+                  }
+                })
+                console.log(meow);
+                var sum = meow.reduce(function(a, b) { return a + b; }, 0);
+                console.log(sum / 29);
+              }
+              getAvgPercentDiff(rareA, rareP);
 
 
 
@@ -292,13 +307,13 @@
 
                 vis.append('svg:path')
                     .attr('d', lineGen(rareP))
-                    .attr('stroke', 'rgb(133, 207, 107)')
+                    .attr('stroke', 'rgb(215, 206, 186)')
                     .attr('stroke-width', 2)
                     .attr('fill', 'none');
 
                 vis.append('svg:path')
                     .attr('d', lineGen(rareA))
-                    .attr('stroke', 'rgba(171, 56, 12, 0.82)')
+                    .attr('stroke', 'rgb(33, 07, 07)')
                     .attr('stroke-width', 2)
                     .attr('fill', 'none');
 
@@ -311,3 +326,6 @@
     </div>
 
 </div>
+<p>
+  $1.04 average deviation
+</p>
