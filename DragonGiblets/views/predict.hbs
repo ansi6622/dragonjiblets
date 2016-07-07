@@ -1,0 +1,63 @@
+<h2>Can you beat the Random Forest's Guess?</h2>
+<form class="" action="index.html" method="post">
+  <label for="prediction">Prediction</label>
+  <input type="integer" step="any" name="prediction" value="">
+  <label for="prediction">Company</label>
+  <select class="" name="company">
+    <option>AAPL</option>
+    <option>GOOGL</option>
+    <option>FB</option>
+    <option>AMZN</option>
+    <option>MSFT</option>
+    <option>PMC</option>
+    <option>RARE</option>
+    <option>TREE</option>
+    <option>ALNY</option>
+    <option>ANIP</option>
+    <option>KITE</option>
+  </select>
+  <button type="submit" name="button">Save Prediction</button>
+</form>
+<table class="easy">
+  <thead>
+    <tr class="easy">
+      <td>
+        Symbol
+      </td>
+      <td>
+        Open
+      </td>
+      <td>
+        Low
+      </td>
+      <td>
+        High
+      </td>
+      <td>
+        Volume
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    {{#stock}}
+    <tr class="easy">
+      <td class="easy">
+        {{symbol}}
+      </td>
+      <td class="easy">
+        {{open}}
+      </td>
+      <td class="easy">
+        {{low}}
+      </td>
+      <td class="easy">
+        {{high}}
+      </td>
+      <td class="easy">
+        {{volume}}
+      </td>
+    </tr>
+    {{/stock}}
+  </tbody>
+</table>
+<p>

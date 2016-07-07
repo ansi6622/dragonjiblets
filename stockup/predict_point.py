@@ -19,7 +19,7 @@ def process_point(symbol):
 def proc_point(dpoint):
     return np.array([dpoint[1],dpoint[2],dpoint[3],dpoint[5],dpoint[7]]).reshape(1, -1)
 
-def predict_point(models, symbol, dpoint):
+def predict_point(models, symbol):
     X = process_point(symbol)
     # X = proc_point(dpoint)
     return models[symbol].predict(X)
@@ -29,7 +29,7 @@ if __name__=='__main__':
     with open('models.pkl') as f:
         models = pickle.load(f)
 
-    print "Predictions for 05-23-2016 closing price, based on data from 01-01-2011 to 05-20-2016"
+    print "Predictions for 07-6-2016 closing price, based on data from 01-01-2011 to 07-05-2016"
     print predict_point(models, 'AAPL'), 'AAPL'
     print predict_point(models, 'GOOGL'), 'GOOGL'
     print predict_point(models, 'PMC'), 'PMC'

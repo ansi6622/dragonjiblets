@@ -1,0 +1,19 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /*border: 1px solid red;*/
+}
+
+.paint {
+  background-color: rgba(246, 238, 218, 0.98);
+}
+
+.easy{
+  /*margin: 2em;*/
+  padding: 2em;
+}
+
+.font {
+  color: rgb(34, 37, 36);
+  /*border: 1px solid red;*/
+}

@@ -1,0 +1,315 @@
+<h2>Google ({{stock}})</h2>
+<div class="container">
+
+    <div class="jumbotron">
+
+        <svg id="visualisation" width="1000" height="500"></svg>
+        <script>
+            function InitChart() {
+                var googlP = [{
+                    "close": "719.85364242",
+                    "date": "1"
+                },
+                {
+                    "close": "730.17983435",
+                    "date": "2"
+                },
+                {
+                    "close": "739.51298193",
+                    "date": "3"
+                },
+                {
+                    "close": "738.75403094",
+                    "date": "4"
+                },
+                {
+                    "close": "744.88526269",
+                    "date": "5"
+                },
+                {
+                    "close": "747.96235934",
+                    "date": "6"
+                },
+                {
+                    "close": "749.28301541",
+                    "date": "7"
+                },
+                {
+                    "close": "744.85151522",
+                    "date": "8"
+                },
+                {
+                    "close": "738.75577275",
+                    "date": "9"
+                },
+                {
+                    "close": "732.09345697",
+                    "date": "10"
+                },
+                {
+                    "close": "737.76337196",
+                    "date": "11"
+                },
+                {
+                    "close": "741.27213821",
+                    "date": "12"
+                },
+                {
+                    "close": "742.31953684",
+                    "date": "13"
+                },
+                {
+                    "close": "734.4457033",
+                    "date": "14"
+                },
+                {
+                    "close": "733.5302035",
+                    "date": "15"
+                },
+                {
+                    "close": "731.7108194",
+                    "date": "16"
+                },
+                {
+                    "close": "734.8748841",
+                    "date": "17"
+                },
+                {
+                    "close": "720.59077023",
+                    "date": "18"
+                },
+                {
+                    "close": "708.08010357",
+                    "date": "19"
+                },
+                {
+                    "close": "711.70297818",
+                    "date": "20"
+                },
+                {
+                    "close": "711.89051462",
+                    "date": "21"
+                },
+                {
+                    "close": "710.16019979",
+                    "date": "22"
+                },
+                {
+                    "close": "705.16490386",
+                    "date": "23"
+                },
+                {
+                    "close": "700.77934585",
+                    "date": "24"
+                },
+                {
+                    "close": "676.87435374",
+                    "date": "25"
+                },
+                {
+                    "close": "689.24969919",
+                    "date": "26"
+                },
+                {
+                    "close": "695.14622404",
+                    "date": "27"
+                },
+                {
+                    "close": "697.02611881",
+                    "date": "28"
+                },
+                {
+                    "close": "711.31959941",
+                    "date": "29"
+                }
+              ];
+
+
+                var googlA = [
+                  {
+                    "close": "717.25",
+                    "date": "1"
+                },
+                  {
+                    "close": "733.030029",
+                    "date": "2"
+                },
+                  {
+                    "close": "738.099976",
+                    "date": "3"
+                },
+                  {
+                    "close": "736.929993",
+                    "date": "4"
+                },
+                  {
+                    "close": "747.599976",
+                    "date": "5"
+                },
+                  {
+                    "close": "748.849976",
+                    "date": "6"
+                },
+                  {
+                    "close": "748.460022",
+                    "date": "7"
+                },
+                  {
+                    "close": "744.27002",
+                    "date": "8"
+                },
+                  {
+                    "close": "735.859985",
+                    "date": "9"
+                },
+                  {
+                    "close": "730.059998",
+                    "date": "10"
+                },
+                  {
+                    "close": "731.090027",
+                    "date": "11"
+                },
+                  {
+                    "close": "742.929993",
+                    "date": "12"
+                },
+                  {
+                    "close": "742.52002",
+                    "date": "13"
+                },
+                  {
+                    "close": "733.190002",
+                    "date": "14"
+                },
+                  {
+                    "close": "731.880005",
+                    "date": "15"
+                },
+                  {
+                    "close": "733.25",
+                    "date": "16"
+                },
+                  {
+                    "close": "732.190002",
+                    "date": "17"
+                },
+                  {
+                    "close": "724.25",
+                    "date": "18"
+                },
+                  {
+                    "close": "704.25",
+                    "date": "19"
+                },
+                  {
+                    "close": "706.130005",
+                    "date": "20"
+                },
+                  {
+                    "close": "708.880005",
+                    "date": "21"
+                },
+                  {
+                    "close": "710.469971",
+                    "date": "22"
+                },
+                  {
+                    "close": "714.869995",
+                    "date": "23"
+                },
+                  {
+                    "close": "685.200012",
+                    "date": "24"
+                },
+                  {
+                    "close": "681.140015",
+                    "date": "25"
+                },
+                  {
+                    "close": "691.26001",
+                    "date": "26"
+                },
+                  {
+                    "close": "695.190002",
+                    "date": "27"
+                },
+                  {
+                    "close": "703.530029",
+                    "date": "28"
+                },
+                  {
+                    "close": "710.25",
+                    "date": "29"
+                }
+              ];
+
+
+
+
+
+                var vis = d3.select("#visualisation"),
+                    WIDTH = 1000,
+                    HEIGHT = 500,
+                    MARGINS = {
+                        top: 20,
+                        right: 20,
+                        bottom: 20,
+                        left: 50
+                    },
+
+                    xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([0, 30]),
+
+                    yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([680, 750]),
+
+                    xAxis = d3.svg.axis()
+                    .scale(xScale),
+
+                    yAxis = d3.svg.axis()
+                    .scale(yScale)
+                    .orient("left");
+
+
+
+
+
+                vis.append("svg:g")
+                    .attr("class", "x axis")
+                    .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
+                    .call(xAxis);
+
+                vis.append("svg:g")
+                    .attr("class", "y axis")
+                    .attr("transform", "translate(" + (MARGINS.left) + ",0)")
+                    .call(yAxis);
+
+                var lineGen = d3.svg.line()
+                    .x(function(d) {
+                        return xScale(d.date);
+                    })
+                    .y(function(d) {
+                        return yScale(d.close);
+                    })
+                    .interpolate("basis");
+
+                vis.append('svg:path')
+                    .attr('d', lineGen(googlP))
+                    .attr('stroke', 'gold')
+                    .attr('stroke-width', 2)
+                    .attr('fill', 'none');
+
+                vis.append('svg:path')
+                    .attr('d', lineGen(googlA))
+                    .attr('stroke', 'indigo')
+                    .attr('stroke-width', 2)
+                    .attr('fill', 'none');
+
+
+
+
+            }
+            InitChart();
+        </script>
+    </div>
+
+</div>

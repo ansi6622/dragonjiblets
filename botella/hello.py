@@ -1,8 +1,16 @@
-from bottle import route, run
+from bs4 import BeautifulSoup
+from requests import get
+from sklearn.ensemble import RandomForestRegressor
+import pandas as pd
 import numpy as np
+from datetime import date
+from bottle import route, run
 import requests
 from sklearn import tree
 from sklearn.datasets import load_iris
+from sklearn.ensemble import RandomForestRegressor
+import cPickle as pickle
+
 iris = load_iris()
 test_idx = [0,50,100]
 train_target = np.delete(iris.target, test_idx)
@@ -38,7 +46,81 @@ def index():
     # print test_data, "datas"
     # print clf2.predict(test_data), "peredictionoas"
     return "mew"
-#
+@route('/makeprediction')
+def index():
+
+    # using BeautifulSoup to parse through data, returning a reshaped numpy array for the model
+    def process_point(symbol):
+        xml = get("https://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx/GetQuoteDataSet?StockSymbols={0}&LicenseKey=0".format(symbol))
+        soup = BeautifulSoup(xml.content, 'xml')
+        open_amount = float(soup.find('OpenAmount').text)
+        high_amount = float(soup.find('DayHigh').text)
+        low_amount = float(soup.find('DayLow').text)
+        volume = int(soup.find('StockVolume').text)
+        date_ordinal = pd.to_datetime(soup.find('LastTradeDateTime').text).toordinal()
+        return np.array([open_amount, high_amount, low_amount, volume, date_ordinal]).reshape(1, -1)
+
+    def proc_point(dpoint):
+        return np.array([dpoint[1],dpoint[2],dpoint[3],dpoint[5],dpoint[7]]).reshape(1, -1)
+
+    def predict_point(models, symbol):
+        X = process_point(symbol)
+        # X = proc_point(dpoint)
+        return models[symbol].predict(X)
+
+    if __name__=='__main__':
+        with open('models.pkl') as f:
+            models = pickle.load(f)
+# numpy type UNSUPPORTED????????//////////////////////////////////////////////////////////////////////////////
+        return np.asscalar(predict_point(models, 'AAPL'));
+        print "Predictions for 07-6-2016 closing price, based on data from 01-01-2011 to 07-05-2016"
+        print predict_point(models, 'GOOGL'), 'GOOGL'
+        # print predict_point(models, 'PMC'), 'PMC'
+        # print predict_point(models, 'MSFT'), 'MSFT'
+        # print predict_point(models, 'FB'), 'FB'
+        # print predict_point(models, 'AMZN'), 'AMZN'
+        # print predict_point(models, 'RARE'), 'RARE'
+        # print predict_point(models, 'TREE'), 'TREE'
+        # print predict_point(models, 'ALNY'), 'ALNY'
+        # print predict_point(models, 'ANIP'), 'ANIP'
+        # print predict_point(models, 'KITE'), 'KITE'
+@route('/trainmodel')
+def catchall():
+    if __name__=='__main__':
+        df = pd.read_csv('stock_data.csv')
+        models = {}
+        for symbol in df["symbol"].unique():
+            # pandas trimming and labeling things, date was in format models couldnt read.
+            X = df.loc[df['symbol'] == symbol].drop(['symbol', 'close', "date"], axis=1).values
+            y = df.loc[df['symbol'] == symbol, "close"].values
+            model = RandomForestRegressor(n_estimators=500)
+            model.fit(X, y)
+            models[symbol] = model
+        with open('models.pkl', 'w') as f:
+            pickle.dump(models, f)
+
+@route('/getdata')
+def doit():
+    def process_stock_df(df, ticker):
+        df.drop('Adj Close', axis=1, inplace=True)
+        df.columns = df.columns.map(lambda x: x.lower())
+        df['symbol'] = ticker
+        df['ordinal_date'] = df['date'].dt.to_pydatetime()
+        df['ordinal_date'] = df['ordinal_date'].apply(lambda x: x.toordinal())
+        return df
+    def download_data(ticker_lst):
+        df_lst = []
+        today = date.today()
+        for ticker in ticker_lst:
+            url = "http://real-chart.finance.yahoo.com/table.csv?s={0}&a=00&b=01&c=2011&d={1}&e={2}&f={3}&g=d&ignore=.csv".format(ticker, today.month-1, today.day-1, today.year)
+            df_lst.append(process_stock_df(pd.read_csv(url, parse_dates=['Date']), ticker))
+        df = pd.concat(df_lst, ignore_index=True)
+        df = df.sort_values(by='date').reset_index(drop=True)
+        return df
+    if __name__=='__main__':
+        df = download_data(['AAPL', 'GOOGL', 'PMC', 'MSFT', 'FB', 'AMZN', 'RARE', 'TREE', 'ALNY', 'ANIP', 'KITE'])
+        df.to_csv('stock_data.csv', index=False)
+
 @route('/stocks')
 def fun():
     # def fut(other):
@@ -62,9 +144,6 @@ def fun():
 #     # data format unsupported in browser? type numpy64 bit or watevea
 #     return "wowoooowie"
     return requests.get("https://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx/GetQuoteDataSet?StockSymbols=AAPL,ALL,AVAV,YPRO,ADBE,ACAD,ACHC,PMC&LicenseKey=0")
-run(host='localhost', port=3000, debug=True)
-
-
     #
     # @route('/fibStressTest/<id>')
     # def process(id):
