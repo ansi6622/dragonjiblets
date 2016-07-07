@@ -1,0 +1,315 @@
+<h2>Microsoft ({{stock}})</h2>
+<div class="container">
+
+    <div class="jumbotron">
+
+        <svg id="visualisation" width="1000" height="500"></svg>
+        <script>
+            function InitChart() {
+                var msftP = [{
+                    "close": "50.38346015",
+                    "date": "1"
+                },
+                {
+                    "close": "50.73533948",
+                    "date": "2"
+                },
+                {
+                    "close": "52.21801983",
+                    "date": "3"
+                },
+                {
+                    "close": "51.68211991",
+                    "date": "4"
+                },
+                {
+                    "close": "52.07085937",
+                    "date": "5"
+                },
+                {
+                    "close": "52.53201975",
+                    "date": "6"
+                },
+                {
+                    "close": "52.8475001",
+                    "date": "7"
+                },
+                {
+                    "close": "52.43471927",
+                    "date": "8"
+                },
+                {
+                    "close": "52.12325946",
+                    "date": "9"
+                },
+                {
+                    "close": "52.28081996",
+                    "date": "10"
+                },
+                {
+                    "close": "52.45795984",
+                    "date": "11"
+                },
+                {
+                    "close": "52.11221959",
+                    "date": "12"
+                },
+                {
+                    "close": "51.82412006",
+                    "date": "13"
+                },
+                {
+                    "close": "51.67436013",
+                    "date": "14"
+                },
+                {
+                    "close": "50.1049198",
+                    "date": "15"
+                },
+                {
+                    "close": "49.91715933",
+                    "date": "16"
+                },
+                {
+                    "close": "49.9847798",
+                    "date": "17"
+                },
+                {
+                    "close": "49.86169929",
+                    "date": "18"
+                },
+                {
+                    "close": "50.0807995",
+                    "date": "19"
+                },
+                {
+                    "close": "50.29122012",
+                    "date": "20"
+                },
+                {
+                    "close": "51.08154015",
+                    "date": "21"
+                },
+                {
+                    "close": "51.17895956",
+                    "date": "22"
+                },
+                {
+                    "close": "51.74613993",
+                    "date": "23"
+                },
+                {
+                    "close": "50.34523974",
+                    "date": "24"
+                },
+                {
+                    "close": "48.71423988",
+                    "date": "25"
+                },
+                {
+                    "close": "48.92143991",
+                    "date": "26"
+                },
+                {
+                    "close": "50.27226",
+                    "date": "27"
+                },
+                {
+                    "close": "51.00556014",
+                    "date": "28"
+                },
+                {
+                    "close": "51.17186009",
+                    "date": "29"
+                }
+              ];
+
+
+                var msftA = [
+                  {
+                    "close": "50.029999",
+                    "date": "1"
+                },
+                  {
+                    "close": "51.59",
+                    "date": "2"
+                },
+                  {
+                    "close": "52.119999",
+                    "date": "3"
+                },
+                  {
+                    "close": "51.889999",
+                    "date": "4"
+                },
+                  {
+                    "close": "52.32",
+                    "date": "5"
+                },
+                  {
+                    "close": "53.0",
+                    "date": "6"
+                },
+                  {
+                    "close": "52.849998",
+                    "date": "7"
+                },
+                  {
+                    "close": "52.48",
+                    "date": "8"
+                },
+                  {
+                    "close": "51.790001",
+                    "date": "9"
+                },
+                  {
+                    "close": "52.130001",
+                    "date": "10"
+                },
+                  {
+                    "close": "52.099998",
+                    "date": "11"
+                },
+                  {
+                    "close": "52.040001",
+                    "date": "12"
+                },
+                  {
+                    "close": "51.619999",
+                    "date": "13"
+                },
+                  {
+                    "close": "51.48",
+                    "date": "14"
+                },
+                  {
+                    "close": "50.139999",
+                    "date": "15"
+                },
+                  {
+                    "close": "49.830002",
+                    "date": "16"
+                },
+                  {
+                    "close": "49.689999",
+                    "date": "17"
+                },
+                  {
+                    "close": "50.389999",
+                    "date": "18"
+                },
+                  {
+                    "close": "50.130001",
+                    "date": "19"
+                },
+                  {
+                    "close": "50.07",
+                    "date": "20"
+                },
+                  {
+                    "close": "51.189999",
+                    "date": "21"
+                },
+                  {
+                    "close": "50.990002",
+                    "date": "22"
+                },
+                  {
+                    "close": "51.91",
+                    "date": "23"
+                },
+                  {
+                    "close": "49.830002",
+                    "date": "24"
+                },
+                  {
+                    "close": "48.43",
+                    "date": "25"
+                },
+                  {
+                    "close": "49.439999",
+                    "date": "26"
+                },
+                  {
+                    "close": "50.540001",
+                    "date": "27"
+                },
+                  {
+                    "close": "51.169998",
+                    "date": "28"
+                },
+                  {
+                    "close": "51.16",
+                    "date": "29"
+                }
+              ];
+
+
+
+
+
+                var vis = d3.select("#visualisation"),
+                    WIDTH = 1000,
+                    HEIGHT = 500,
+                    MARGINS = {
+                        top: 20,
+                        right: 20,
+                        bottom: 20,
+                        left: 50
+                    },
+
+                    xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([0, 30]),
+
+                    yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([48, 53]),
+
+                    xAxis = d3.svg.axis()
+                    .scale(xScale),
+
+                    yAxis = d3.svg.axis()
+                    .scale(yScale)
+                    .orient("left");
+
+
+
+
+
+                vis.append("svg:g")
+                    .attr("class", "x axis")
+                    .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
+                    .call(xAxis);
+
+                vis.append("svg:g")
+                    .attr("class", "y axis")
+                    .attr("transform", "translate(" + (MARGINS.left) + ",0)")
+                    .call(yAxis);
+
+                var lineGen = d3.svg.line()
+                    .x(function(d) {
+                        return xScale(d.date);
+                    })
+                    .y(function(d) {
+                        return yScale(d.close);
+                    })
+                    .interpolate("basis");
+
+                vis.append('svg:path')
+                    .attr('d', lineGen(msftP))
+                    .attr('stroke', 'turquoise')
+                    .attr('stroke-width', 2)
+                    .attr('fill', 'none');
+
+                vis.append('svg:path')
+                    .attr('d', lineGen(msftA))
+                    .attr('stroke', 'navy')
+                    .attr('stroke-width', 2)
+                    .attr('fill', 'none');
+
+
+
+
+            }
+            InitChart();
+        </script>
+    </div>
+
+</div>

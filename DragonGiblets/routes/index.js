@@ -62,5 +62,8 @@ router.get('/googl', function(req, res, next) {
 router.get('/fb', function(req, res, next) {
   res.render('companies/fb', { title: 'Facebook' });
 });
+router.get('/msft', function(req, res, next) {
+  res.render('companies/msft', { title: 'Microsoft' });
+});
 
 module.exports = router;
