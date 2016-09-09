@@ -29,7 +29,7 @@ if __name__=='__main__':
     with open('models.pkl') as f:
         models = pickle.load(f)
 
-    print "Predictions for 07-6-2016 closing price, based on data from 01-01-2011 to 07-05-2016"
+    print "Predictions for 07-7-2016 closing price, based on data from 01-01-2011 to 07-06-2016"
     print predict_point(models, 'AAPL'), 'AAPL'
     print predict_point(models, 'GOOGL'), 'GOOGL'
     print predict_point(models, 'PMC'), 'PMC'

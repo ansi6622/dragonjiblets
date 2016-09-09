@@ -1,0 +1,13 @@
+Predictions for 07-7-2016 closing price, based on data from 01-01-2011 to 07-06-2016
+//predicted    /ticker  /actual_closing_value
+[ 96.17649968] AAPL    95.94
+[ 709.24357871] GOOGL  707.26
+[ 25.03872017] PMC     24.81
+[ 51.22224044] MSFT    51.38
+[ 116.5376795] FB      115.85
+[ 730.24692931] AMZN   736.57
+[ 52.57129953] RARE    52.5
+[ 94.68644044] TREE    93.11
+[ 60.99626058] ALNY    61.52
+[ 57.50282015] ANIP    58.12
+[ 51.66221997] KITE    52.1
