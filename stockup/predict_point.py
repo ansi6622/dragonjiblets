@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 from requests import get
 from sklearn.ensemble import RandomForestRegressor
 import cPickle as pickle
+from datetime import date
+today = date.today();
 
 # using BeautifulSoup to parse through data, returning a reshaped numpy array for the model
 def process_point(symbol):
@@ -24,12 +26,11 @@ def predict_point(models, symbol):
     # X = proc_point(dpoint)
     return models[symbol].predict(X)
 
-
 if __name__=='__main__':
     with open('models.pkl') as f:
         models = pickle.load(f)
 
-    print "Predictions for 07-7-2016 closing price, based on data from 01-01-2011 to 07-06-2016"
+    print "Predictions for ", today, "closing price, based on data from 01-01-2011 to ", today
     print predict_point(models, 'AAPL'), 'AAPL'
     print predict_point(models, 'GOOGL'), 'GOOGL'
     print predict_point(models, 'PMC'), 'PMC'
@@ -41,6 +42,18 @@ if __name__=='__main__':
     print predict_point(models, 'ALNY'), 'ALNY'
     print predict_point(models, 'ANIP'), 'ANIP'
     print predict_point(models, 'KITE'), 'KITE'
+    # print "Predictions for 07-7-2016 closing price, based on data from 01-01-2011 to 07-06-2016"
+    # print predict_point(models, 'AAPL'), 'AAPL'
+    # print predict_point(models, 'GOOGL'), 'GOOGL'
+    # print predict_point(models, 'PMC'), 'PMC'
+    # print predict_point(models, 'MSFT'), 'MSFT'
+    # print predict_point(models, 'FB'), 'FB'
+    # print predict_point(models, 'AMZN'), 'AMZN'
+    # print predict_point(models, 'RARE'), 'RARE'
+    # print predict_point(models, 'TREE'), 'TREE'
+    # print predict_point(models, 'ALNY'), 'ALNY'
+    # print predict_point(models, 'ANIP'), 'ANIP'
+    # print predict_point(models, 'KITE'), 'KITE'
     # print predict_point(models, 'GOOGL', [2016-05-23,719.97998,723.5,716.940002,717.25,1233400,'GOOGL',736107]), 'GOOGL 717.25'
     # print predict_point(models, 'PMC', [2016-05-23,26.75,26.76,26.030001,26.16,361900,'PMC',736107]), 'PMC 26.16'
     # print predict_point(models, 'MSFT', [2016-05-23,50.599998,50.68,49.98,50.029999,25999700,'MSFT',736107]), 'MSFT 50.029999'

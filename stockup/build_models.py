@@ -13,7 +13,7 @@ if __name__=='__main__':
         X = df.loc[df['symbol'] == symbol].drop(['symbol', 'close', "date"], axis=1).values
         y = df.loc[df['symbol'] == symbol, "close"].values
 
-        model = RandomForestRegressor(n_estimators=500)
+        model = RandomForestRegressor(n_estimators=750)
         model.fit(X, y)
 
         models[symbol] = model
